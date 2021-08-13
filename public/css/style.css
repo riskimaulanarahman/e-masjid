@@ -1,0 +1,173 @@
+        /* navbar */
+        
+        .navbar-brand,
+        .nav-link {
+            color: #FFFFFF !important;
+        }
+        
+        .navbar {
+            background-image: linear-gradient(to right, #1ea6ec, #2c92fb);
+        }
+        
+        .navbar-brand {
+            font-family: viga;
+            font-size: 32px;
+        }
+        /* utilitis */
+        
+        .tombol {
+            text-transform: uppercase;
+            border-radius: 40px;
+        }
+        /* tombolpetunjuk */
+        
+        .petunjuk {
+            border-radius: 40px;
+        }
+        /* Banner */
+        
+        .banner {
+            position: relative;
+            background-image: linear-gradient(to right, #1ea6ec, #2c92fb);
+            color: #FFFFFF;
+            padding-top: 5%;
+            height: auto;
+        }
+        
+        .panel {
+            margin-top: 10px;
+            width: 90%;
+        }
+        /* akhir banner */
+        /* map */
+        
+        .map {
+            font-family: 'Poppins', sans-serif;
+            height: auto;
+            margin-bottom: 10px;
+            width: 80%;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+        
+        .map .judul {
+            font-family: 'Poppins', sans-serif;
+            font-size: 30px;
+        }
+        /* akhir map */
+        /* footer */
+        
+        #footer {
+            font-family: 'Poppins', sans-serif;
+            background-image: linear-gradient(to right, #05080a, #01070c);
+            color: #FFFFFF;
+            text-align: center;
+            height: auto;
+            padding-right: 5%;
+        }
+        
+        .jfooter {
+            font-family: 'Poppins', sans-serif;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .detailmasjid {
+            margin-right: 5%;
+        }
+        
+        .fasilitas {
+            margin-bottom: 2%;
+            background-color: darkgreen;
+        }
+        
+        .profilmasjid {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* desktop */
+        
+        @media (min-width: 992px) {
+            .nav-link {
+                text-transform: uppercase;
+                margin-right: 30px;
+            }
+            .nav-link:hover::after {
+                content: '';
+                display: block;
+                border-bottom: 3px solid #1145EC;
+                width: 50%;
+                margin: auto;
+                padding-bottom: 5px;
+                margin-bottom: -8px;
+            }
+            /* banner */
+            #banner {
+                position: relative;
+                background-image: linear-gradient(to right, #1ea6ec, #2c92fb);
+                color: #FFFFFF;
+                padding-top: 5%;
+                height: 500px;
+            }
+            #banner .title {
+                font-weight: bolder;
+                margin-top: 80px;
+            }
+            .ban-img {
+                position: relative;
+                z-index: 1000;
+            }
+            .wave {
+                position: absolute;
+                bottom: -5%;
+                left: 0;
+            }
+            .navbar-brand,
+            .nav-link {
+                color: #FFFFFF !important;
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
+            }
+            #detail {
+                margin-top: 40px;
+            }
+            .map {
+                margin-top: 10px;
+                color: #000000;
+            }
+            /* footer */
+            #footer {
+                background-image: linear-gradient(to right, #05080a, #01070c);
+                color: #FFFFFF;
+                text-align: center;
+                height: 300px;
+            }
+            .jfooter {
+                font-size: large;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                margin-top: 30px;
+                margin-bottom: 40px;
+            }
+            .detailmasjid {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+                font-style: normal;
+            }
+            .namamasjid {
+                font-family: viga;
+                font-size: 30px;
+            }
+            .nav-detail {
+                color: #05080a;
+            }
+            .detail-lain {
+                background-image: url('img/kapasitas.jpg');
+                padding: 5px 60px 10px 90px;
+                float: right;
+            }
+            .fasilitas {
+                border-radius: 10px;
+                height: 100px;
+                width: 200px;
+                background-color: darkgreen;
+                color: #ffffff;
+            }
+        }

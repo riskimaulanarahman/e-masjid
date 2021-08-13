@@ -1,0 +1,114 @@
+@extends('layouts.backend')
+
+@section('content')
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel panel-heading">
+                <h3 class= panel-title> Grafik </h3>
+            </div>
+            <div class="panel-body">
+                <canvas id="myChart" width="400" height="200" ></canvas>
+            </div>
+        </div>
+    </div>
+<div class="col-md-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Jumlah Berdasarkan Kategory</h3>
+        </div>
+
+        <div class="panel-body">
+            <table class="table table-striped table hover">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Jumlah</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <?php $jml=0; ?>
+                    @foreach($kategoryCount as $cc)
+
+                    <tr>
+                        <td>{{$cc->kategori}}</td>
+                        <td>{{$cc->jml}}</td>
+                    </tr>
+                    <?php $jml+=$cc->jml; ?>
+                    @endforeach
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>{{$jml}}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <script type="text/javascript">
+    var ctx = document.getElementById("myChart").getContext('2d');
+    @if($grafik!=null)
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {!!$grafik['labels']!!},
+            datasets: [{
+                label: 'Kategori',
+                data: {{$grafik['data']}},
+                backgroundColor: {!!$grafik['backgroundColor']!!},
+                borderColor: {!!$grafik['backgroundColor']!!},
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+    @endif
+    </script>
+
+<script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script type="text/javascript">
+        var ctx = document.getElementById("myChart").getContext('2d');
+        @if($grafik!=null)
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {!!$grafik['labels']!!},
+                datasets: [{
+                    label: 'Kategori',
+                    data: {{$grafik['data']}},
+                    backgroundColor: {!!$grafik['backgroundColor']!!},
+                    borderColor: {!!$grafik['backgroundColor']!!},
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+        @endif
+    </script>
+</script>
+
+  <!-- Page level plugins -->
+  <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
+<script src="{{ asset('js/demo/chart-bar-demo.js') }}"></script>
+
+
+@endsection
