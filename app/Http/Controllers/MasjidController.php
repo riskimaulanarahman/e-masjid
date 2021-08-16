@@ -56,7 +56,7 @@ class MasjidController extends Controller
         $filename = $file->getClientOriginalName();
         $file->move(public_path('foto'), $filename);
 
-        $masjid->id_infaq       = $infaq->id;
+        $masjid->id_infaq       = $infaq->id_infaq;
         $masjid->id_bank        = $data['id_bank'];
         $masjid->nama_masjid    = $data['nama_masjid'];
         $masjid->id_kategory    = $data['id_kategory'];

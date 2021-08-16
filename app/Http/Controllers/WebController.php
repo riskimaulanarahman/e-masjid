@@ -108,10 +108,10 @@ class WebController extends Controller
         //     'masjid'    => $masjid,
         //     'fas'   => $fas
         // ];
-        $data = Masjid::where('id',$id)
-        ->with(['kategory','fasilitas','kegiatan','pengurus','bank','infaq'])->first();
+        $data = Masjid::where('id', $id)
+            ->with(['kategory', 'fasilitas', 'kegiatan', 'pengurus', 'bank', 'infaq'])->first();
 
-        // return $data;
+        //return $data;
 
         // return view('detailmasjid',$data);
         return view('detailmasjid', ['data' => $data]);
