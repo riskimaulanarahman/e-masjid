@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost", "u349600776_emasjid", "Hostinger");
+$con = mysqli_connect("localhost", "u349600776_emasjid", "Hostinger123");
 mysqli_select_db($con, "u349600776_emasjid");
 
 if ($con == false) {
