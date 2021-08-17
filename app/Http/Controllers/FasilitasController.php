@@ -31,17 +31,18 @@ class FasilitasController extends Controller
     public function store(Request $request)
     {
         $pesan = [
+            'numeric'   => 'Hanya bisa diisi dengan angka',
             'required' => ':attribute wajib di isi'
         ];
         $this->validate($request, [
-            'alquran'       => 'required',
-            'mukenah'       => 'required',
-            'sajadah'       => 'required',
-            'tempat_wudhu'  => 'required',
-            'keranda'       => 'required',
-            'kain_kafan'    => 'required',
-            'keranda'       => 'required',
-            'ambulans'      => 'required',
+            'alquran'       => 'required|numeric',
+            'mukenah'       => 'required|numeric',
+            'sajadah'       => 'required|numeric',
+            'tempat_wudhu'  => 'required|numeric',
+            'keranda'       => 'required|numeric',
+            'kain_kafan'    => 'required|numeric',
+            'keranda'       => 'required|numeric',
+            'ambulans'      => 'required|numeric',
         ], $pesan);
 
         DB::table('fasilitas')->insert([

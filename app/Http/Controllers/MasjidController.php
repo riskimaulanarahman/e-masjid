@@ -16,6 +16,7 @@ class MasjidController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('auth');
         $this->Masjid           = new Masjid();
         $this->KategoryModel    = new KategoryModel();
         $this->InfaqModel       = new InfaqModel();
@@ -44,7 +45,9 @@ class MasjidController extends Controller
 
     public function insert(Request $request)
     {
+
         $data = $request->all();
+
 
         $infaq = new InfaqModel();
         $infaq->atasnama_rek    = $data['atasnama_rek'];

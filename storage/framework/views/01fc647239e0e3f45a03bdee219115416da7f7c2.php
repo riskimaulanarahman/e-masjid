@@ -1,5 +1,5 @@
-@extends('layouts.backend')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="row">
 
     <div class="btn">
@@ -16,11 +16,12 @@
 
 
         <div class="card-body">
-            @if (session('pesan'))
+            <?php if(session('pesan')): ?>
                 <div class="alert alert-success" role="alert">
-                   {{session('pesan')}}
+                   <?php echo e(session('pesan')); ?>
+
                 </div>
-                @endif
+                <?php endif; ?>
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead >
@@ -33,20 +34,20 @@
                     </thead>
                     <tbody>
                         <?php $no = 1 ?>
-                        @foreach ($fasilitas as $item)
+                        <?php $__currentLoopData = $fasilitas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td class="text-center" >{{ $no++ }}</td>
-                            <td >{{ $item->masjid->nama_masjid}}</td>
-                            <td >{{ $item->alquran}}</td>
+                            <td class="text-center" ><?php echo e($no++); ?></td>
+                            <td ><?php echo e($item->masjid->nama_masjid); ?></td>
+                            <td ><?php echo e($item->alquran); ?></td>
 
                             <td class="text-center">
-                              <a href="/fasilitas/detailfasilitas/{{$item->id}}" class="btn btn-sm btn-flat btn-success"><i class="fas fa-eye"></i></a>
-                                <a href="/fasilitas/edit/{{$item->id}}" class="btn btn-sm btn-flat btn-warning"><i class="fa fa-edit"></i></a>
-                                <a  class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#delete{{$item->id}}"><i class="fa fa-trash"></i></a>
+                              <a href="/fasilitas/detailfasilitas/<?php echo e($item->id); ?>" class="btn btn-sm btn-flat btn-success"><i class="fas fa-eye"></i></a>
+                                <a href="/fasilitas/edit/<?php echo e($item->id); ?>" class="btn btn-sm btn-flat btn-warning"><i class="fa fa-edit"></i></a>
+                                <a  class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#delete<?php echo e($item->id); ?>"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
 
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
              </div>
@@ -54,8 +55,8 @@
     </div>
 </div>
 
-@foreach ($fasilitas as $item)
-    <div class="modal fade" id="delete{{$item->id}}">
+<?php $__currentLoopData = $fasilitas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <div class="modal fade" id="delete<?php echo e($item->id); ?>">
         <div class="modal-dialog">
           <div class="modal-content bg-warning">
             <div class="modal-header">
@@ -69,12 +70,14 @@
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-outline-light" data-dismiss="modal">Keluar</button>
-              <a href="/fasilitas/delete/{{$item->id}}" type="button" class="btn btn-outline-light">Ya</a>
+              <a href="/fasilitas/delete/<?php echo e($item->id); ?>" type="button" class="btn btn-outline-light">Ya</a>
             </div>
           </div>
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
       </div>
-@endforeach
-@endsection
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.backend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\emasjid\resources\views/admin/fasilitas/index.blade.php ENDPATH**/ ?>
