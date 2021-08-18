@@ -14,11 +14,7 @@
             </div> 
         </div>
 
-        <form class="form-inline my-4 my-lg-0" method="get" action="{{ url('masjids') }}">
-          <input class="form-control ml-auto mr-2" type="text" value="{{ $keyword}}" placeholder="Search" aria-label="Search" name="keyword">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-
+       
         <div class="card-body">
             @if (session('pesan'))
                 <div class="alert alert-success" role="alert">

@@ -9,8 +9,13 @@ use Illuminate\Support\Facades\DB;
 
 class PengurusController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
+
         $pengurus = Pengurus::all();
         return view('admin.pengurus.index', compact('pengurus'));
     }
@@ -23,9 +28,6 @@ class PengurusController extends Controller
 
     public function store(Request $request)
     {
-        $pesan = [
-            'required' => ':attribute wajib di isi'
-        ];
         $this->validate($request, [
             'thn_kepengurusan'       => 'required',
             'dewan_pembina'       => 'required',
@@ -39,7 +41,7 @@ class PengurusController extends Controller
             'seksi_fadhukifayah'      => 'required',
             'seksi_zakat'      => 'required',
             'seksi_qurban'      => 'required',
-        ], $pesan);
+        ]);
 
         DB::table('pengurus')->insert([
             'thn_kepengurusan' => $request->thn_kepengurusan,
@@ -71,9 +73,6 @@ class PengurusController extends Controller
     public function update(Request $request, $id)
     {
 
-        $pesan = [
-            'required' => ':attribute wajib di isi'
-        ];
         $this->validate($request, [
             'thn_kepengurusan'       => 'required',
             'dewan_pembina'       => 'required',
@@ -87,7 +86,7 @@ class PengurusController extends Controller
             'seksi_fadhukifayah'      => 'required',
             'seksi_zakat'      => 'required',
             'seksi_qurban'      => 'required',
-        ], $pesan);
+        ]);
 
 
         $pengurus = Pengurus::find($id);

@@ -12,6 +12,7 @@ class FasilitasController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('auth');
         $this->Masjid           = new Masjid();
         $this->Fasilitas        = new Fasilitas();
     }
